@@ -5,15 +5,13 @@ from rclpy.node import Node
 from example_interfaces.msg import Int64
 from example_interfaces.srv import SetBool
 
-class MyNode(Node):
 
+class MyNode(Node):
     def __init__(self):
         super().__init__("number_counter")
         self.count = 0
         self.publisher = self.create_publisher(Int64, "number_count", 10)
-        self.subscriber = self.create_subscription(
-            Int64, "number", self.callback, 10
-        )
+        self.subscriber = self.create_subscription(Int64, "number", self.callback, 10)
         self.server = self.create_service(SetBool, "reset_counter", self.reset_callback)
         self.get_logger().info("number_counter INITIATED")
 

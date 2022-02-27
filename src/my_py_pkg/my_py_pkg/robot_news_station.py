@@ -4,8 +4,8 @@ import rclpy
 from rclpy.node import Node
 from example_interfaces.msg import String
 
-class MyNode(Node):
 
+class MyNode(Node):
     def __init__(self):
         super().__init__("robot_news_station")
         self.publisher = self.create_publisher(String, "robot_news", 10)
